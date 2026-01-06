@@ -1,0 +1,139 @@
+/* style.css */
+body {
+    background-color: #000814; /* Deep midnight blue */
+    color: #f0f0f0;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#caller-status-bar {
+    background: #111;
+    border-bottom: 3px double #444;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#caller-display {
+    color: #ffcc00; /* Gold for the Referee */
+    font-weight: bold;
+    text-align: center;
+    flex: 2;
+}
+
+#main-interface {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: hidden;
+}
+
+#duel-log {
+    flex: 1;
+    background: #050505;
+    border: 1px solid #333;
+    overflow-y: auto;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+#input-sector {
+    background: #222;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.highlight {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+
+input {
+    background: #111;
+    color: #00ff00;
+    border: 1px solid #555;
+    padding: 8px;
+    width: 250px;
+}
+
+button {
+    cursor: pointer;
+    background: #444;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+}
+
+button:hover { background: #666; }
+
+#dev-sidebar {
+    position: fixed;
+    right: 0;
+    top: 60px; /* Below your Caller bar */
+    width: 250px;
+    height: calc(100vh - 60px);
+    background: #1a1a1a;
+    border-left: 2px solid #444;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+}
+
+.sidebar-header {
+    color: gold;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.note-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.note-container label {
+    font-size: 0.65rem;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.note-container textarea {
+    background: #000;
+    color: #00ff00; /* Old school terminal green */
+    border: 1px solid #444;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    height: 120px;
+    padding: 5px;
+    resize: vertical;
+}
+
+.note-container button {
+    margin-top: 5px;
+    font-size: 0.7rem;
+    background: #333;
+    color: #ccc;
+    border: 1px solid #555;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.note-container button:hover {
+    background: #444;
+    color: white;
+}
