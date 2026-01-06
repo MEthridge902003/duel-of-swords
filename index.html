@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <div id="dev-sidebar">
+    <button id="toggle-sidebar-btn" onclick="toggleSidebar()">[ X ] CLOSE TOOLS</button>
+
+
     <div class="sidebar-header">🛠️ DUELIST TOOLBOX</div>
     
     <div class="note-container">
@@ -19,9 +22,12 @@ Follow the move matrix rules. Respond ONLY in JSON:
     <div class="note-container">
         <label>RULES MATRIX REFERENCE</label>
         <textarea id="matrix-sticky">
-THRS vs CUTS: AI -1
-DUCK vs THRS: P -1
-SIDE vs THRUST: P -0.5
+Thrust     Stop-Hit
+High-Cut   Lateral-Parry
+Low-Cut    Vertical-Parry
+Sidestep   Duck
+Disengage
+        
         </textarea>
         <button onclick="copyNote('matrix-sticky')">COPY RULES</button>
     </div>
@@ -33,7 +39,7 @@ SIDE vs THRUST: P -0.5
 </div>
 <body>
     <div id="caller-status-bar">
-        <div class="score-wing">Michael: <span id="p-score">5.0</span></div>
+        <div class="score-wing">Player: <span id="p-score">5.0</span></div>
         <div id="caller-display">THE CALLER: "En garde! Awaiting opening moves..."</div>
         <div class="score-wing">AI: <span id="a-score">5.0</span></div>
     </div>
@@ -52,6 +58,7 @@ SIDE vs THRUST: P -0.5
             <div class="input-group highlight">
                 <input type="text" id="move-input" placeholder="Enter Move (Thrust, Duck, etc...)">
                 <button id="duel-btn">EXECUTE</button>
+                <button id="open-sidebar-btn" onclick="toggleSidebar()" >🛠️ TOOLS</button>
             </div>
         </div>
     </div>   

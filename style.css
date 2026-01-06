@@ -137,3 +137,35 @@ button:hover { background: #666; }
     background: #444;
     color: white;
 }
+/* Add this to your existing #dev-sidebar */
+#dev-sidebar {
+    transition: transform 0.3s ease; /* Smooth sliding effect */
+}
+
+/* Class to hide the sidebar */
+.sidebar-hidden {
+    transform: translateX(100%); /* Slides it off the right edge */
+}
+
+/* Adjust your main container (the chat/game area) */
+#main-container {
+    transition: margin-right 0.3s ease;
+    margin-right: 250px; /* Gap for the open sidebar */
+}
+
+/* When the sidebar is hidden, use the full screen */
+.full-width {
+    margin-right: 0 !important;
+}
+
+/* Style for the 'Open' button that stays on screen */
+#open-sidebar-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1001; /* Stay above everything */
+    padding: 10px;
+    background: gold;
+    border: 2px solid black;
+    cursor: pointer;
+}

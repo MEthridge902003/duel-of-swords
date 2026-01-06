@@ -235,3 +235,21 @@ function copyNote(id) {
     btn.innerText = "COPIED!";
     setTimeout(() => btn.innerText = originalText, 1000);
 }
+function toggleSidebar() {
+    const sidebar = document.getElementById('dev-sidebar');
+    const main = document.getElementById('main-container'); // Change this to your main div's ID
+    const openBtn = document.getElementById('open-sidebar-btn');
+
+    sidebar.classList.toggle('sidebar-hidden');
+    
+    if (main) {
+        main.classList.toggle('full-width');
+    }
+
+    // Show/Hide the tiny open button
+    if (sidebar.classList.contains('sidebar-hidden')) {
+        openBtn.style.display = 'block';
+    } else {
+        openBtn.style.display = 'none';
+    }
+}
