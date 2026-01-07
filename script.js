@@ -1,5 +1,5 @@
 // 1. CONFIGURATION & STATE
-const API_KEY = "Your-Gemini-API"; 
+const API_KEY = "your-api-key-here"; 
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${API_KEY}`;
 
 let playerPoints = 5.0;
@@ -232,6 +232,16 @@ async function sendFlavorChat() {
 
     } catch (e) {
         console.error("Chat error:", e);
+    }
+}
+
+function resetGame() {
+    if (confirm("Are you sure? This will wipe the scores and history!")) {
+        localStorage.clear();
+        playerPoints = 5.0;
+        aiPoints = 5.0;
+        aiMoveHistory = [];
+        location.reload(); // Simplest way to reset the UI and logic
     }
 }
 
