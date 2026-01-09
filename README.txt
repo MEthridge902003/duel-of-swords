@@ -1,18 +1,3 @@
-🌟 Project Vision: The Digital Sands
-The Goal: To bridge the gap between structured game logic and the creative potential of Large Language Models.
-
-Growing up in the early days of online gaming (AOL's Rhydin), the "Duel of Swords" wasn't just about a math matrix; it was about the "flavor"—the roleplay, the taunts, and the tension of the crowd. As a student of The Odin Project, I wanted to see if I could build a "Digital Caller" that handles the rigid scoring of the past while giving a modern AI the room to be a living, breathing opponent.
-
-Key Concepts:
-
-The Orchestrator: The JavaScript acts as the impartial Referee (The Caller), tracking every half-point and move history.
-
-The Soul: Google Gemini provides the narrative weight, reacting to player taunts and interpreting the "clash of steel" in real-time.
-
-Collaborative Play: A game designed not just to be "won," but to be written together, one exchange at a time.
-
-"I wanted to create a space where the logic is hidden behind the curtain, letting the player focus on the blade and the banter—just like we did back in the day."
-
 📜 Manual of Arms
 1. Entering the Arena
 This game requires a Google Gemini API Key.
@@ -38,6 +23,21 @@ The Execute Button: Use this to send both a move and a taunt simultaneously for 
 The Tools: Toggle the sidebar to see the full scoring matrix if you forget which move beats what.
 
 Note: Currently optimized for Desktop browsers (Chrome/Edge/Firefox). Mobile support is currently in the "Training Grounds" (Development).
+
+🌟 Project Vision: The Digital Sands
+The Goal: To bridge the gap between structured game logic and the creative potential of Large Language Models.
+
+Growing up in the early days of online gaming (AOL's Rhydin), the "Duel of Swords" wasn't just about a math matrix; it was about the "flavor"—the roleplay, the taunts, and the tension of the crowd. As a student of The Odin Project, I wanted to see if I could build a "Digital Caller" that handles the rigid scoring of the past while giving a modern AI the room to be a living, breathing opponent.
+
+Key Concepts:
+
+The Orchestrator: The JavaScript acts as the impartial Referee (The Caller), tracking every half-point and move history.
+
+The Soul: Google Gemini provides the narrative weight, reacting to player taunts and interpreting the "clash of steel" in real-time.
+
+Collaborative Play: A game designed not just to be "won," but to be written together, one exchange at a time.
+
+"I wanted to create a space where the logic is hidden behind the curtain, letting the player focus on the blade and the banter—just like we did back in the day."
 
 
 ## Legal Disclaimer & Acknowledgments
