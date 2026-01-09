@@ -4,6 +4,8 @@ This game requires a Google Gemini API Key.
 
 If you don't have one, you can get it for free at Google AI Studio.
 
+The free teir has per day and per minute prompt rates. Spamming moves to fast and daily prompt limit can cause game issues.
+
 Upon launch, the game will prompt you for your key. It is stored locally in your browser and never sent to any server other than Google's.
 
 2. The Combat System
@@ -67,8 +69,11 @@ If you are a rights holder and have concerns regarding this project, please open
 
 ## 🚀 Roadmap & Dev Notes
 
+Developer Note: Upon researching current trademarks, I discovered active properties using the 'Red Dragon Inn' name. 
+To maintain professional integrity and project safety, I transitioned the UI and AI prompts to a generic 'Ancient Arena' theme while preserving the original 1990s dueling logic.
+
 ### Current Focus: Mobile Optimization
-The arena is currently optimized for desktop. My next "side-quest" is implementing CSS Media Queries to ensure the sands of the Red Dragon Inn look just as good on a cell phone.
+The arena is currently optimized for desktop. My next "side-quest" is implementing CSS Media Queries to ensure the sands of the Arena look just as good on a cell phone.
 
 ### Known Limitations
 * **The Matrix:** This 9-move logic was resurrected from memory. If a veteran duelist notices a missing interaction, please open an issue!

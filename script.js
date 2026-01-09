@@ -115,7 +115,7 @@ duelBtn.addEventListener('click', async () => {
     callerBox.innerHTML = `THE CALLER: "Player strikes! Awaiting AI..."`;
 
     const history = aiMoveHistory.slice(-3).join(", ");
-    const systemPrompt = `You are an RDI Master. Include move in [[brackets]]. History: ${history}. Valid moves: thrust, high-cut, low-cut, lateral-parry, vertical-parry, stop-hit, side-step, duck, disengage.`;
+    const systemPrompt = `You are role playing a Sword Master. Include move in [[brackets]]. History: ${history}. Valid moves: thrust, high-cut, low-cut, lateral-parry, vertical-parry, stop-hit, side-step, duck, disengage.`;
     const userPrompt = `Score: P:${playerPoints} AI:${aiPoints}. Player Message: "${pChat}". (The player has sent their move, now you make yours!)`;
 
     const rawText = await talkToGemini(userPrompt, systemPrompt);
@@ -130,7 +130,7 @@ if (sendChatBtn) {
         chatInput.value = "";
         postToLog("Player", pChat, "cyan");
 
-        const response = await talkToGemini(pChat, "You are an RDI Duelist in banter mode. No brackets needed.");
+        const response = await talkToGemini(pChat, "You are a role play Duelist in banter mode. No brackets needed.");
         postToLog("AI", response, "magenta");
     });
 }
