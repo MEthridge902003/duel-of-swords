@@ -33,7 +33,7 @@
 Thrust     Stop-Hit
 High-Cut   Lateral-Parry
 Low-Cut    Vertical-Parry
-Sidestep   Duck
+Side-step   Duck
 Disengage
         
         </textarea>
@@ -44,6 +44,11 @@ Disengage
         <label>SCRATCHPAD</label>
         <textarea id="scratchpad" placeholder="Draft your taunts here..."></textarea>
     </div>
+    <div class="note-container" style="border-top: 1px solid #444; padding-top: 10px;">
+    <label>API KEY SETTINGS</label>
+    <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: cyan; font-size: 0.7rem;">Get Free Key Here</a>
+    <button onclick="localStorage.removeItem('gemini_key'); location.reload();" style="font-size: 0.6rem;">RESET SAVED KEY</button>
+</div>
 </div>
 <body>
     <div id="caller-status-bar">
@@ -66,8 +71,8 @@ Disengage
             <div class="input-group highlight">
                 <input type="text" id="move-input" placeholder="Enter Move (Thrust, Duck, etc...)">
                 <button id="duel-btn">EXECUTE</button>
-                
-                 <button onclick="resetGame()" style="background-color: #440000; color: white;">RESET MATCH</button>
+                <button id="about-btn" onclick="openReadmeModal()" style="background: none; color: gold; border: 1px solid gold; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; margin-left: 5px; font-weight: bold;">?</button>
+                 <button onclick="resetGame()" style="background-color: #440000; color: white;display:flex; margin-left:auto; margin-right:auto;">RESET MATCH</button>
             
                 <button id="open-sidebar-btn" onclick="toggleSidebar()" >🛠️ TOOLS</button>
             </div>
