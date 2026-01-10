@@ -1,3 +1,22 @@
+Project Introduction: The Iron Sands Arena
+Objective: To transition foundational knowledge of JavaScript (Data Types & Conditionals) into a live, AI-integrated web application.
+
+The Vision: This project serves as a technical tribute to the text-based dueling communities of the 1990s (specifically the Red Dragon Inn on AOL). The goal was to take a legendary 9-move combat matrix and modernize it using a Large Language Model (LLM) to act as both the "opponent" and the "narrator."
+
+Technical Milestones Achieved:
+
+State Management: Implemented localStorage to ensure game scores and move history persist across browser refreshes—making the game "interruption-proof."
+
+AI Orchestration: Engineered a custom "Logic vs. Soul" prompt system. The script extracts technical move data for scoring while simultaneously delivering immersive roleplay taunts to the user.
+
+Responsive Design: Authored a mobile-first CSS architecture, ensuring the 90s aesthetic remains functional and legible on modern smartphones.
+
+IP & Risk Management: Proactively rebranded from specific trademarks to a generic "Arena" theme to ensure professional deployment and respect for intellectual property.
+
+The Log of Record: The following interactions document the "Play-by-Play" development of the Arena. It tracks the evolution from simple logic hurdles to a fully deployed GitHub Pages application. (Note: Personal names have been redacted/replaced with Developer, Oldest, and Youngest for privacy.)
+
+
+
 New Project
 
 That’s exciting! Since you’ve been working through data types and conditionals in the TOP foundations course, a new project is the perfect way to cement those concepts before things get more complex.
