@@ -169,3 +169,38 @@ button:hover { background: #666; }
     border: 2px solid black;
     cursor: pointer;
 }
+
+/* Mobile Optimization */
+@media screen and (max-width: 768px) {
+    #arena-container {
+        flex-direction: column; /* Stacks sidebar and main log */
+        height: auto;
+        padding: 10px;
+    }
+
+    #main-arena {
+        width: 100%;
+    }
+
+    #dev-sidebar {
+        width: 100%;
+        margin-top: 20px;
+        order: 2; /* Puts tools below the game on mobile */
+    }
+
+    /* Make buttons easier to tap */
+    button, input {
+        font-size: 16px; /* Prevents iPhone auto-zoom */
+        padding: 12px;
+        margin: 5px 0;
+    }
+
+    .input-group {
+        flex-direction: column;
+        display: flex;
+    }
+
+    #caller-status-bar {
+        font-size: 0.9rem;
+    }
+}

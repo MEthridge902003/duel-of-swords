@@ -10,9 +10,7 @@ if (!API_KEY) {
 
 const getApiUrl = () => `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${API_KEY}`;
 
-let playerPoints = 5.0;
-let aiPoints = 5.0;
-let aiMoveHistory = [];
+
 
 // 2. DOM ELEMENTS (Moved to the top so the rest of the script can "see" them)
 const moveInput = document.getElementById('move-input');
@@ -23,6 +21,16 @@ const callerBox = document.getElementById('caller-display');
 const log = document.getElementById('duel-log');
 const pScoreDisp = document.getElementById('p-score');
 const aScoreDisp = document.getElementById('a-score');
+
+// Load scores from memory, or default to 5.0 if new game
+let playerPoints = parseFloat(localStorage.getItem('pScore')) || 5.0;
+let aiPoints = parseFloat(localStorage.getItem('aScore')) || 5.0;
+let aiMoveHistory = JSON.parse(localStorage.getItem('aiHistory')) || [];
+
+// Update the display immediately on load
+pScoreDisp.innerText = playerPoints.toFixed(1);
+aScoreDisp.innerText = aiPoints.toFixed(1);
+
 
 // 3. THE RULES MATRIX
 const duelRules = {
@@ -70,6 +78,11 @@ function executeRound(pMove, aMove, taunt) {
     const result = duelRules[pMove][aMove];
     playerPoints += result.playerChange;
     aiPoints += result.aiChange;
+
+    // Save to localStorage so it survives a refresh
+    localStorage.setItem('pScore', playerPoints);
+    localStorage.setItem('aScore', aiPoints);
+    localStorage.setItem('aiHistory', JSON.stringify(aiMoveHistory));
 
     // 2. Scoreboard: Update the numbers on screen
     pScoreDisp.innerText = playerPoints.toFixed(1);
@@ -142,7 +155,12 @@ function toggleSidebar() {
 }
 
 function resetGame() {
-    if (confirm("Reset match?")) location.reload();
+    if (confirm("Reset match? This wipes the scores from memory!")) {
+        localStorage.removeItem('pScore');
+        localStorage.removeItem('aScore');
+        localStorage.removeItem('aiHistory');
+        location.reload(); 
+    }
 }
 
 async function openReadmeModal() {
