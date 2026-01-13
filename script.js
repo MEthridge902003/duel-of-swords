@@ -128,7 +128,7 @@ duelBtn.addEventListener('click', async () => {
     callerBox.innerHTML = `THE CALLER: "Player strikes! Awaiting AI..."`;
 
     const history = aiMoveHistory.slice(-3).join(", ");
-    const systemPrompt = `You are role playing a Sword Master. Include move in [[brackets]]. History: ${history}. Valid moves: thrust, high-cut, low-cut, lateral-parry, vertical-parry, stop-hit, side-step, duck, disengage.`;
+    const systemPrompt = `You are role playing a Wise Sword Master. Include move in [[brackets]]. History: ${history} no chaining same move consequtively back to back. Valid moves: thrust, high-cut, low-cut, lateral-parry, vertical-parry, stop-hit, side-step, duck, disengage.`;
     const userPrompt = `Score: P:${playerPoints} AI:${aiPoints}. Player Message: "${pChat}". (The player has sent their move, now you make yours!)`;
 
     const rawText = await talkToGemini(userPrompt, systemPrompt);

@@ -76,8 +76,7 @@ To maintain professional integrity and project safety, I transitioned the UI and
 The arena is currently optimized for desktop. My next "side-quest" is implementing CSS Media Queries to ensure the sands of the Arena look just as good on a cell phone.
 
 ### Known Limitations
-* **The Matrix:** This 9-move logic was resurrected from memory. If a veteran duelist notices a missing interaction, please open an issue!
-* **Scoring:** Currently, refreshing the page resets the match same as the reset button. I'd like to be able to come back to the same game if unfinished. 
+* **The Matrix:** This 9-move logic was resurrected from memory. If a veteran duelist notices a missing interaction, please open an issue! 
 
 ### Future Features
 * **Persistent Legends:** Name change feature for player and AI.
