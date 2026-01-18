@@ -73,27 +73,33 @@ function parseAiResponse(rawText) {
     return { move, taunt };
 }
 
-function executeRound(pMove, aMove, taunt) {
-    // 1. Logic: Use the technical move names to do the math
+function executeRound(pMove, aMove, taunt, pChat) {
+    // 1. Logic: Math stays in the background
     const result = duelRules[pMove][aMove];
     playerPoints += result.playerChange;
     aiPoints += result.aiChange;
 
-    // Save to localStorage so it survives a refresh
+    // Save to memory
     localStorage.setItem('pScore', playerPoints);
     localStorage.setItem('aScore', aiPoints);
     localStorage.setItem('aiHistory', JSON.stringify(aiMoveHistory));
 
-    // 2. Scoreboard: Update the numbers on screen
+    // 2. Scoreboard
     pScoreDisp.innerText = playerPoints.toFixed(1);
     aScoreDisp.innerText = aiPoints.toFixed(1);
     
-    // 3. The Caller: This is the only place the move names are "shouted"
+    // 3. The Caller: The technical "Referee" announcement
     callerBox.innerHTML = `THE CALLER: "${pMove.toUpperCase()} vs ${aMove.toUpperCase()}!"`;
 
-    // 4. The Log: Pure story. Player move and AI "Taunt" (the banter)
-    postToLog("Player", pMove, "cyan");
-    postToLog("AI", taunt, "magenta"); // Clean! No brackets, just the soul.
+    // 4. The Log: Conversational History
+    // If the player typed a message, show that. Otherwise, show the move.
+    if (pChat) {
+        postToLog("Player", `"${pChat}"`, "cyan");
+    } else {
+        postToLog("Player", `(Strikes with ${pMove})`, "cyan");
+    }
+    
+    postToLog("AI", taunt, "magenta"); 
     
     checkGameOver();
 }
@@ -116,24 +122,29 @@ function checkGameOver() {
 // 5. EVENT LISTENERS (Placed at the bottom so they can reference everything above)
 duelBtn.addEventListener('click', async () => {
     const pMove = moveInput.value.toLowerCase().trim();
-    const pChat = chatInput.value.trim();
+    const pChat = chatInput.value.trim(); // Capture chat first
 
     if (!duelRules[pMove]) {
         alert("Illegal move! Use: thrust, high-cut, low-cut, etc.");
         return;
     }
 
+    // Clear inputs immediately for a better "feel"
     moveInput.value = ""; 
     chatInput.value = ""; 
     callerBox.innerHTML = `THE CALLER: "Player strikes! Awaiting AI..."`;
 
     const history = aiMoveHistory.slice(-3).join(", ");
-    const systemPrompt = `You are role playing a Wise Sword Master. Include move in [[brackets]]. History: ${history} no chaining same move consequtively back to back. Valid moves: thrust, high-cut, low-cut, lateral-parry, vertical-parry, stop-hit, side-step, duck, disengage.`;
+    const systemPrompt = `You are role playing a Wise Sword Master. Include move in [[brackets]]. History: ${history}. No chaining same move back to back. Valid moves: thrust, high-cut, low-cut, lateral-parry, vertical-parry, stop-hit, side-step, duck, disengage.`;
+    
+    // We send the pChat to Gemini so it can respond to the banter
     const userPrompt = `Score: P:${playerPoints} AI:${aiPoints}. Player Message: "${pChat}". (The player has sent their move, now you make yours!)`;
 
     const rawText = await talkToGemini(userPrompt, systemPrompt);
     const aiData = parseAiResponse(rawText);
-    executeRound(pMove, aiData.move, aiData.taunt);
+
+    // Pass pChat to the executor so it can be logged alongside the AI's taunt
+    executeRound(pMove, aiData.move, aiData.taunt, pChat);
 });
 
 if (sendChatBtn) {
