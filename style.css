@@ -294,3 +294,32 @@ body {
         padding-top: 80px; /* Leave room for the big Close button */
     }
 }
+/* REMOVE the position: fixed from this block */
+#open-sidebar-btn {
+    position: static; /* Let it sit in the group */
+    background: #444; /* Match other buttons */
+    color: gold;
+    border: 1px solid gold;
+    flex: 1; /* Makes it share space evenly */
+}
+
+/* Ensure the input group doesn't overlap */
+.input-group.highlight {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap to a second line if the screen is tiny */
+    gap: 5px;
+    justify-content: center;
+}
+
+/* Specific button widths for mobile */
+@media screen and (max-width: 768px) {
+    #duel-btn {
+        flex: 2; /* Make Execute the biggest button */
+        background: #004400;
+        font-weight: bold;
+    }
+    
+    #open-sidebar-btn {
+        flex: 1; /* Tools button sits nicely to the right */
+    }
+}
