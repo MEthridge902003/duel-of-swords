@@ -9,7 +9,7 @@ The free teir has per day and per minute prompt rates. Spamming moves to fast an
 Upon launch, the game will prompt you for your key. It is stored locally in your browser and never sent to any server other than Google's.
 
 2. The Combat System
-The duel follows the classic 9-move matrix. Type your move into the Execute box:
+The duel follows the classic 10-move matrix. Type your move into the Execute box:
 
 Attacks: Thrust, High-Cut, Low-Cut
 
@@ -48,7 +48,7 @@ Collaborative Play: A game designed not just to be "won," but to be written toge
 This is a non-commercial, educational project created as part of my journey through **The Odin Project (TOP) Foundations**. It is a technical exercise in implementing a complex logic matrix and integrating AI (Google Gemini) into a web application.
 
 ### Intellectual Property Notice
-The combat mechanics (the 9-move matrix) used in this project are based on the **"Duel of Swords"** game originally featured in the **Red Dragon Inn (RDI)** on America Online (AOL).
+The combat mechanics (the 10-move matrix) used in this project are based on the **"Duel of Swords"** game originally featured in the **Red Dragon Inn (RDI)** on America Online (AOL).
 * I do not claim ownership of the "Duel of Swords" mechanics, names, or the Red Dragon Inn setting.
 * This project is not affiliated with, endorsed by, or sponsored by the original creators of the Red Dragon Inn or any current rights holders (such as Slugfest Games or Wizards of the Coast).
 * This repository is intended strictly as a **tribute and technical portfolio piece**.
@@ -76,7 +76,7 @@ To maintain professional integrity and project safety, I transitioned the UI and
 The arena is currently optimized for desktop. My next "side-quest" is implementing CSS Media Queries to ensure the sands of the Arena look just as good on a cell phone.
 
 ### Known Limitations
-* **The Matrix:** This 9-move logic was resurrected from memory. If a veteran duelist notices a missing interaction, please open an issue! 
+* **The Matrix:** This 10-move logic was resurrected from memory. If a veteran duelist notices a missing interaction, please open an issue! 
 
 ### Future Features
 * **Persistent Legends:** Name change feature for player and AI.

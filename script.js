@@ -34,15 +34,126 @@ aScoreDisp.innerText = aiPoints.toFixed(1);
 
 // 3. THE RULES MATRIX
 const duelRules = {
-    "thrust": { "thrust": { playerChange: -1, aiChange: -1 }, "high-cut": { playerChange: 0, aiChange: -1 }, "low-cut": { playerChange: 0, aiChange: -1 }, "duck": { playerChange: 0, aiChange: -1 }, "lateral-parry": { playerChange: -0.5, aiChange: 0 }, "vertical-parry": { playerChange: 0, aiChange: 0.5 }, "side-step": { playerChange: -0.5, aiChange: 0 }, "disengage": { playerChange: -0.5, aiChange: 0 }, "stop-hit": { playerChange: -1, aiChange: 0 } },
-    "high-cut": { "high-cut": { playerChange: 0, aiChange: 0 }, "low-cut": { playerChange: -1, aiChange: -1 }, "thrust": { playerChange: -1, aiChange: 0 }, "vertical-parry": { playerChange: 0, aiChange: -1 }, "side-step": { playerChange: 0, aiChange: -1 }, "stop-hit": { playerChange: 0, aiChange: -1 }, "disengage": { playerChange: 0, aiChange: -1 }, "lateral-parry": { playerChange: -0.5, aiChange: 0 }, "duck": { playerChange: -1, aiChange: 0 } },
-    "low-cut": { "low-cut": { playerChange: 0, aiChange: 0 }, "duck": { playerChange: 0, aiChange: -1 }, "high-cut": { playerChange: -1, aiChange: -1 }, "thrust": { playerChange: -1, aiChange: 0 }, "lateral-parry": { playerChange: 0, aiChange: -1 }, "side-step": { playerChange: 0, aiChange: -1 }, "stop-hit": { playerChange: 0, aiChange: -1 }, "disengage": { playerChange: 0, aiChange: -1 }, "vertical-parry": { playerChange: -0.5, aiChange: 0 } },
-    "lateral-parry": { "high-cut": { playerChange: 0, aiChange: -0.5 }, "thrust": { playerChange: 0, aiChange: -0.5 }, "stop-hit": { playerChange: 0, aiChange: 0 }, "disengage": { playerChange: 0, aiChange: 0 }, "low-cut": { playerChange: -1, aiChange: 0 }, "lateral-parry": { playerChange: 0, aiChange: 0 }, "vertical-parry": { playerChange: 0, aiChange: 0 }, "side-step": { playerChange: -0.5, aiChange: 0 }, "duck": { playerChange: 0, aiChange: 0 } },
-    "vertical-parry": { "low-cut": { playerChange: 0, aiChange: -0.5 }, "thrust": { playerChange: 0, aiChange: -0.5 }, "high-cut": { playerChange: -1, aiChange: 0 }, "side-step": { playerChange: -0.5, aiChange: 0 }, "stop-hit": { playerChange: 0, aiChange: 0 }, "lateral-parry": { playerChange: 0, aiChange: 0 }, "vertical-parry": { playerChange: 0, aiChange: 0 }, "duck": { playerChange: 0, aiChange: 0 }, "disengage": { playerChange: 0, aiChange: 0 } },
-    "stop-hit": { "thrust": { playerChange: 0, aiChange: -1 }, "high-cut": { playerChange: -1, aiChange: 0 }, "low-cut": { playerChange: -1, aiChange: 0 }, "side-step": { playerChange: -0.5, aiChange: 0 }, "stop-hit": { playerChange: 0, aiChange: 0 }, "lateral-parry": { playerChange: 0, aiChange: 0 }, "vertical-parry": { playerChange: 0, aiChange: 0 }, "duck": { playerChange: 0, aiChange: 0 }, "disengage": { playerChange: 0, aiChange: 0 } },
-    "side-step": { "thrust": { playerChange: 0, aiChange: -0.5 }, "lateral-parry": { playerChange: 0, aiChange: -0.5 }, "vertical-parry": { playerChange: 0, aiChange: -0.5 }, "duck": { playerChange: 0, aiChange: -0.5 }, "high-cut": { playerChange: -1, aiChange: 0 }, "low-cut": { playerChange: -1, aiChange: 0 }, "side-step": { playerChange: 0, aiChange: 0 }, "stop-hit": { playerChange: 0, aiChange: 0 }, "disengage": { playerChange: 0, aiChange: 0 } },
-    "duck": { "high-cut": { playerChange: 0, aiChange: -0.5 }, "thrust": { playerChange: -1, aiChange: 0 }, "low-cut": { playerChange: -1, aiChange: 0 }, "side-step": { playerChange: -0.5, aiChange: 0 }, "duck": { playerChange: 0, aiChange: 0 }, "stop-hit": { playerChange: 0, aiChange: 0 }, "lateral-parry": { playerChange: 0, aiChange: 0 }, "vertical-parry": { playerChange: 0, aiChange: 0 }, "disengage": { playerChange: 0, aiChange: 0 } },
-    "disengage": { "thrust": { playerChange: 0, aiChange: -0.5 }, "high-cut": { playerChange: -1, aiChange: 0 }, "low-cut": { playerChange: -1, aiChange: 0 }, "disengage": { playerChange: 0, aiChange: 0 }, "side-step": { playerChange: 0, aiChange: 0 }, "duck": { playerChange: 0, aiChange: 0 }, "stop-hit": { playerChange: 0, aiChange: 0 }, "lateral-parry": { playerChange: 0, aiChange: 0 }, "vertical-parry": { playerChange: 0, aiChange: 0 } }
+    "thrust": { 
+        "thrust": { playerChange: -1, aiChange: -1 }, 
+        "high-cut": { playerChange: 0, aiChange: -1 }, 
+        "low-cut": { playerChange: 0, aiChange: -1 }, 
+        "duck": { playerChange: 0, aiChange: -1 }, 
+        "lateral-parry": { playerChange: -0.5, aiChange: 0 }, 
+        "vertical-parry": { playerChange: 0, aiChange: 0 }, 
+        "side-step": { playerChange: -0.5, aiChange: 0 }, 
+        "disengage": { playerChange: -0.5, aiChange: 0 }, 
+        "stop-hit": { playerChange: -1, aiChange: 0 },
+        "slash": { playerChange: 0, aiChange: -1 } 
+    },
+    "high-cut": { 
+        "high-cut": { playerChange: 0, aiChange: 0 }, 
+        "low-cut": { playerChange: -1, aiChange: -1 }, 
+        "thrust": { playerChange: -1, aiChange: 0 }, 
+        "vertical-parry": { playerChange: 0, aiChange: -1 }, 
+        "side-step": { playerChange: 0, aiChange: -1 }, 
+        "stop-hit": { playerChange: 0, aiChange: -1 }, 
+        "disengage": { playerChange: 0, aiChange: -1 }, 
+        "lateral-parry": { playerChange: -0.5, aiChange: 0 }, 
+        "duck": { playerChange: -1, aiChange: 0 },
+        "slash": { playerChange: 0, aiChange: -1 }
+    },
+    "low-cut": { 
+        "low-cut": { playerChange: 0, aiChange: 0 }, 
+        "duck": { playerChange: 0, aiChange: -1 }, 
+        "high-cut": { playerChange: -1, aiChange: -1 }, 
+        "thrust": { playerChange: -1, aiChange: 0 }, 
+        "lateral-parry": { playerChange: 0, aiChange: -1 }, 
+        "side-step": { playerChange: 0, aiChange: -1 }, 
+        "stop-hit": { playerChange: 0, aiChange: -1 }, 
+        "disengage": { playerChange: 0, aiChange: -1 }, 
+        "vertical-parry": { playerChange: -0.5, aiChange: 0 },
+        "slash": { playerChange: 0, aiChange: -1 }
+    },
+    "slash": {
+        "thrust": { playerChange: -1, aiChange: 0 },
+        "high-cut": { playerChange: -1, aiChange: 0 },
+        "low-cut": { playerChange: -1, aiChange: 0 },
+        "stop-hit": { playerChange: -1, aiChange: 0 },
+        "lateral-parry": { playerChange: 0, aiChange: -1 },
+        "vertical-parry": { playerChange: 0, aiChange: -1 },
+        "duck": { playerChange: 0, aiChange: -1 },
+        "side-step": { playerChange: -0.5, aiChange: 0 },
+        "disengage": { playerChange: -0.5, aiChange: 0 },
+        "slash": { playerChange: -1, aiChange: -1 }
+    },
+    "lateral-parry": { 
+        "high-cut": { playerChange: 0, aiChange: -0.5 }, 
+        "thrust": { playerChange: 0, aiChange: -0.5 }, 
+        "stop-hit": { playerChange: 0, aiChange: 0 }, 
+        "disengage": { playerChange: 0, aiChange: 0 }, 
+        "low-cut": { playerChange: -1, aiChange: 0 }, 
+        "lateral-parry": { playerChange: 0, aiChange: 0 }, 
+        "vertical-parry": { playerChange: 0, aiChange: 0 }, 
+        "side-step": { playerChange: -0.5, aiChange: 0 }, 
+        "duck": { playerChange: -0.5, aiChange: 0 },
+        "slash": { playerChange: -1, aiChange: 0 }
+    },
+    "vertical-parry": { 
+        "low-cut": { playerChange: 0, aiChange: -0.5 }, 
+        "thrust": { playerChange: 0, aiChange: -0.5 }, 
+        "high-cut": { playerChange: -1, aiChange: 0 }, 
+        "side-step": { playerChange: -0.5, aiChange: 0 }, 
+        "stop-hit": { playerChange: 0, aiChange: 0 }, 
+        "lateral-parry": { playerChange: 0, aiChange: 0 }, 
+        "vertical-parry": { playerChange: 0, aiChange: 0 }, 
+        "duck": { playerChange: 0, aiChange: 0 }, 
+        "disengage": { playerChange: 0, aiChange: 0 },
+        "slash": { playerChange: -1, aiChange: 0 }
+    },
+    "stop-hit": { 
+        "thrust": { playerChange: 0, aiChange: -1 }, 
+        "high-cut": { playerChange: -1, aiChange: 0 }, 
+        "low-cut": { playerChange: -1, aiChange: 0 }, 
+        "side-step": { playerChange: -0.5, aiChange: 0 }, 
+        "stop-hit": { playerChange: 0, aiChange: 0 }, 
+        "lateral-parry": { playerChange: 0, aiChange: 0 }, 
+        "vertical-parry": { playerChange: 0, aiChange: 0 }, 
+        "duck": { playerChange: 0, aiChange: 0 }, 
+        "disengage": { playerChange: 0, aiChange: 0 },
+        "slash": { playerChange: 0, aiChange: -1 }
+    },
+    "side-step": { 
+        "thrust": { playerChange: 0, aiChange: -0.5 }, 
+        "lateral-parry": { playerChange: 0, aiChange: -0.5 }, 
+        "vertical-parry": { playerChange: 0, aiChange: -0.5 }, 
+        "duck": { playerChange: 0, aiChange: -0.5 }, 
+        "high-cut": { playerChange: -1, aiChange: 0 }, 
+        "low-cut": { playerChange: -1, aiChange: 0 }, 
+        "side-step": { playerChange: 0, aiChange: 0 }, 
+        "stop-hit": { playerChange: 0, aiChange: 0 }, 
+        "disengage": { playerChange: 0, aiChange: 0 },
+        "slash": { playerChange: 0, aiChange: -0.5 }
+    },
+    "duck": { 
+        "high-cut": { playerChange: 0, aiChange: -0.5 }, 
+        "thrust": { playerChange: -1, aiChange: 0 }, 
+        "low-cut": { playerChange: -1, aiChange: 0 }, 
+        "side-step": { playerChange: -0.5, aiChange: 0 }, 
+        "duck": { playerChange: 0, aiChange: 0 }, 
+        "stop-hit": { playerChange: 0, aiChange: 0 }, 
+        "lateral-parry": { playerChange: 0, aiChange: -0.5 }, 
+        "vertical-parry": { playerChange: 0, aiChange: 0 }, 
+        "disengage": { playerChange: 0, aiChange: 0 },
+        "slash": { playerChange: -1, aiChange: 0 }
+    },
+    "disengage": { 
+        "thrust": { playerChange: 0, aiChange: -0.5 }, 
+        "high-cut": { playerChange: -1, aiChange: 0 }, 
+        "low-cut": { playerChange: -1, aiChange: 0 }, 
+        "disengage": { playerChange: 0, aiChange: 0 }, 
+        "side-step": { playerChange: 0, aiChange: 0 }, 
+        "duck": { playerChange: 0, aiChange: 0 }, 
+        "stop-hit": { playerChange: 0, aiChange: 0 }, 
+        "lateral-parry": { playerChange: 0, aiChange: 0 }, 
+        "vertical-parry": { playerChange: 0, aiChange: 0 },
+        "slash": { playerChange: 0, aiChange: -0.5 }
+    }
 };
 
 // 4. CORE FUNCTIONS
@@ -135,7 +246,7 @@ duelBtn.addEventListener('click', async () => {
     callerBox.innerHTML = `THE CALLER: "Player strikes! Awaiting AI..."`;
 
     const history = aiMoveHistory.slice(-3).join(", ");
-    const systemPrompt = `You are role playing a Wise Sword Master. Include move in [[brackets]]. History: ${history}. No chaining same move back to back. Valid moves: thrust, high-cut, low-cut, lateral-parry, vertical-parry, stop-hit, side-step, duck, disengage.`;
+    const systemPrompt = `You are role playing a Wise Sword Master. Include move in [[brackets]]. History: ${history}. No chaining same move back to back. Valid moves: thrust, high-cut, low-cut, lateral-parry, vertical-parry, stop-hit, side-step, duck, disengage, slash.`;
     
     // We send the pChat to Gemini so it can respond to the banter
     const userPrompt = `Score: P:${playerPoints} AI:${aiPoints}. Player Message: "${pChat}". (The player has sent their move, now you make yours!)`;
