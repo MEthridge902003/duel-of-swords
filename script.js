@@ -102,7 +102,7 @@ const duelRules = {
         "stop-hit": { playerChange: 0, aiChange: 0 }, 
         "lateral-parry": { playerChange: 0, aiChange: 0 }, 
         "vertical-parry": { playerChange: 0, aiChange: 0 }, 
-        "duck": { playerChange: 0, aiChange: 0 }, 
+        "duck": { playerChange: -0.5, aiChange: 0 }, 
         "disengage": { playerChange: 0, aiChange: 0 },
         "slash": { playerChange: -1, aiChange: 0 }
     },
@@ -138,7 +138,7 @@ const duelRules = {
         "duck": { playerChange: 0, aiChange: 0 }, 
         "stop-hit": { playerChange: 0, aiChange: 0 }, 
         "lateral-parry": { playerChange: 0, aiChange: -0.5 }, 
-        "vertical-parry": { playerChange: 0, aiChange: 0 }, 
+        "vertical-parry": { playerChange: 0, aiChange: -0.5 }, 
         "disengage": { playerChange: 0, aiChange: 0 },
         "slash": { playerChange: -1, aiChange: 0 }
     },

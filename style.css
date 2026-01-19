@@ -172,35 +172,125 @@ button:hover { background: #666; }
 
 /* Mobile Optimization */
 @media screen and (max-width: 768px) {
-    #arena-container {
-        flex-direction: column; /* Stacks sidebar and main log */
-        height: auto;
-        padding: 10px;
+/* Fix the Body to prevent the whole page from bouncing */
+body {
+    height: 100vh;
+    overflow: hidden; /* Only the log should scroll */
+}
+
+/* 1. ANCHOR THE TOP */
+#caller-status-bar {
+    position: sticky;
+    top: 0;
+    height: 60px; /* Consistent height */
+    z-index: 1000;
+}
+
+/* 2. THE SCROLLABLE CENTER */
+#main-interface {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 200px); /* Leave room for top/bottom */
+    overflow: hidden;
+}
+
+#duel-log {
+    flex: 1;
+    overflow-y: scroll; /* Forces scroll inside this box only */
+    -webkit-overflow-scrolling: touch; /* Smooth scroll for iPhones */
+}
+
+/* 3. ANCHOR THE BOTTOM */
+#input-sector {
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+    background: #222;
+    padding-bottom: env(safe-area-inset-bottom); /* Handles iPhone notch/home bar */
+}
+
+/* --- MOBILE SPECIFIC FIXES --- */
+@media screen and (max-width: 768px) {
+    /* Make the score wing text bigger for quick glances */
+    .score-wing {
+        font-size: 1.2rem;
+        font-weight: bold;
     }
 
-    #main-arena {
-        width: 100%;
+    #caller-display {
+        font-size: 0.8rem; /* Keeps long move names on one line */
     }
 
-    #dev-sidebar {
-        width: 100%;
-        margin-top: 20px;
-        order: 2; /* Puts tools below the game on mobile */
-    }
-
-    /* Make buttons easier to tap */
-    button, input {
-        font-size: 16px; /* Prevents iPhone auto-zoom */
-        padding: 12px;
-        margin: 5px 0;
+    /* BIGGER BUTTONS & INPUTS */
+    input, select, button {
+        width: 100% !important; /* Stack them vertically */
+        margin: 4px 0;
+        min-height: 48px; /* Apple's recommended touch target size */
+        font-size: 18px !important; /* Forces zoom-free typing */
     }
 
     .input-group {
-        flex-direction: column;
         display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 768px) {
+    #dev-sidebar {
+        width: 100% !important; /* Take up the whole width */
+        height: 100% !important; /* Take up the whole height */
+        top: 0 !important; /* Cover the Caller bar */
+        left: 0;
+        z-index: 2000; /* Sit on top of everything */
+        border-left: none;
+        padding: 20px;
+        box-sizing: border-box;
     }
 
-    #caller-status-bar {
-        font-size: 0.9rem;
+    /* Make the textareas even larger for easier copying/pasting on touch */
+    .note-container textarea {
+        height: 200px; 
+        font-size: 16px; /* Prevents iOS from zooming in when you tap it */
+    }
+
+    /* Make the CLOSE button prominent at the top */
+    #toggle-sidebar-btn {
+        width: 100%;
+        height: 50px;
+        background: #440000;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+}
+/* Make the Header Reset look like a small, clean utility button */
+#header-reset-btn {
+    background: #440000;
+    color: #ffaaaa;
+    font-size: 0.6rem;
+    padding: 2px 8px;
+    border: 1px solid #660000;
+    display: block;
+    margin: 5px auto 0;
+}
+
+/* HIGH VISIBILITY for the API Key in the Sidebar */
+.api-key-button {
+    display: block;
+    background: #00ffff !important; /* Bright Neon Cyan */
+    color: #000 !important; /* Black text for contrast */
+    text-align: center;
+    padding: 15px !important;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 1rem !important;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+/* Ensure the Sidebar Tools are clickable */
+@media screen and (max-width: 768px) {
+    #dev-sidebar {
+        padding-top: 80px; /* Leave room for the big Close button */
     }
 }

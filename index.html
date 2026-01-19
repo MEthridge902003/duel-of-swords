@@ -10,6 +10,7 @@
 
 
     <div class="sidebar-header">🛠️ DUELIST TOOLBOX</div>
+    <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: cyan; font-size: 0.7rem;">Get Free Key Here</a>
     
     <div class="note-container">
         <label>SYSTEM PROMPT (Copy/Paste to AI)</label>
@@ -53,10 +54,15 @@ Disengage   Slash
 </div>
 <body>
     <div id="caller-status-bar">
-        <div class="score-wing">Player: <span id="p-score">5.0</span></div>
-        <div id="caller-display">THE CALLER: "En garde! Awaiting opening moves..."</div>
-        <div class="score-wing">AI: <span id="a-score">5.0</span></div>
+    <div class="score-wing">Player: <span id="p-score">5.0</span></div>
+    
+    <div id="caller-display-container">
+        <div id="caller-display">THE CALLER: "En garde!"</div>
+        <button onclick="resetGame()" id="header-reset-btn">NEW MATCH</button>
     </div>
+
+    <div class="score-wing">AI: <span id="a-score">5.0</span></div>
+</div>
 
     <div id="main-interface">
         <div id="duel-log">
@@ -70,10 +76,22 @@ Disengage   Slash
             </div>
 
             <div class="input-group highlight">
-                <input type="text" id="move-input" placeholder="Enter Move (Thrust, Duck, etc...)">
+                <select id="move-input">
+    <option value="" disabled selected>CHOOSE YOUR MOVE</option>
+    <option value="thrust">Thrust</option>
+    <option value="slash">Slash</option>
+    <option value="high-cut">High-Cut</option>
+    <option value="low-cut">Low-Cut</option>
+    <option value="lateral-parry">Lateral-Parry</option>
+    <option value="vertical-parry">Vertical-Parry</option>
+    <option value="stop-hit">Stop-Hit</option>
+    <option value="side-step">Side-Step</option>
+    <option value="duck">Duck</option>
+    <option value="disengage">Disengage</option>
+</select>
                 <button id="duel-btn">EXECUTE</button>
                 <button id="about-btn" onclick="openReadmeModal()" style="background: none; color: gold; border: 1px solid gold; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; margin-left: 5px; font-weight: bold;">?</button>
-                 <button onclick="resetGame()" style="background-color: #440000; color: white;display:flex; margin-left:auto; margin-right:auto;">RESET MATCH</button>
+                 
             
                 <button id="open-sidebar-btn" onclick="toggleSidebar()" >🛠️ TOOLS</button>
             </div>
